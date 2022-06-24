@@ -80,7 +80,7 @@ for scanpath_idx in range(NUM_SCANPATHS):
             samples.append(MDN.sample_mdn(pi, mu, sigma, rho).data.cpu().numpy().squeeze())
 
         samples = np.array(samples)
-        samples[:, 0] = samples[:, 0] * 300
+        samples[:, 0] = samples[:, 0] * 400
         samples[:, 1] = samples[:, 1] * 300
         x_mask = (samples[:, 0] > 0) & (samples[:, 0] < 400)
         y_mask = (samples[:, 1] > 0) & (samples[:, 1] < 300)
