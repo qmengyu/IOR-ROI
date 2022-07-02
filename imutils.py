@@ -1,18 +1,19 @@
 import numpy as np
 from PIL import Image
 
-
+# 按比例填充图片
 def pad_img_KAR(img, target_w, target_h, pad_value=(124, 116, 104)):
 	w, h = img.size
 	if w / h == target_w / target_h:
 		return img, (0, 0)
-
+	
+	# 填充宽度
 	if w < h or w * (target_h / target_w) < h:
 		new_w = int(h * (target_w / target_h))
 		new_img = Image.new('RGB', (new_w, h), color=pad_value)
 		new_img.paste(img, (int((new_w - w) // 2), 0))
 		return new_img, (new_w - w, 0)
-	else:
+	else:  # 填充高度
 		new_h = int(w * (target_h / target_w))
 		new_img = Image.new('RGB', (w, new_h), color=pad_value)
 		new_img.paste(img, (0, int((new_h - h) // 2)))
