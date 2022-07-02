@@ -20,6 +20,7 @@ def pad_img_KAR(img, target_w, target_h, pad_value=(124, 116, 104)):
 		return new_img, (0, new_h - h)
 
 
+# 按比例填充矩阵
 def pad_array_KAR(arr, target_h, target_w, pad_value=np.array([[0]])):
 	h, w = arr.shape
 	if w / h == target_w / target_h:
